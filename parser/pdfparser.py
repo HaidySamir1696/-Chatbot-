@@ -124,7 +124,7 @@ class PDFParser(BaseParser):
             for key, value in row.items():
                 key = str(key)
                 value = str(value)
-                text += key.replace('\n', ' ').strip() + ': ' + value.replace('\n', ' ').strip() + ', '
+                text += key.replace('\n', ' ').strip() + ': ' + "'" + value.replace('\n', ' ').strip() + "'" + ', '
             text = text[0: -2]
             text += '\n\n'
         text = text.strip()
