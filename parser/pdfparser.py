@@ -2,7 +2,6 @@ from tika import parser
 
 import pandas as pd
 import numpy as np
-import nltk
 import camelot
 import random
 import re
@@ -30,6 +29,7 @@ class PDFParser(BaseParser):
 
     _pdfPath = None
     _data = pd.DataFrame(columns=['paragraghs', 'tables'])
+    _htmlTables = []
 
     def __init__(self, pdfPath):
         super().__init__()
@@ -53,6 +53,9 @@ class PDFParser(BaseParser):
         processed = pd.DataFrame(columns=['paragraghs', 'tables'])
 
         for table in tables:
+            self._htmlTables.append(table.df.to_html())
+            tableindex = len(self._htmlTables) -1
+
             df = table.df
             headers = df.iloc[0]
             df = df[1:]
@@ -73,7 +76,14 @@ class PDFParser(BaseParser):
                 end = search.end()
 
                 processed = processed.append( self._textToParagraphs(pretext[:start-1]), ignore_index=True)
-                processed = processed.append( {'paragraghs': self.tableDFtoParagraph(df), 'tables': table.df.to_html()}, ignore_index=True)
+
+                pgs = self.tableDFtoParagraph(df)
+                pgs = re.split(r'(?:\r?\n){2,}', pgs)
+
+                for pg in pgs:
+                    processed = processed.append( {'paragraghs': pg, 'tables': tableindex}, ignore_index=True)
+
+
                 pretext = pretext[end:]
 
             except Exception as e:
@@ -116,10 +126,13 @@ class PDFParser(BaseParser):
                 value = str(value)
                 text += key.replace('\n', ' ').strip() + ': ' + value.replace('\n', ' ').strip() + ', '
             text = text[0: -2]
-            text += '\n'
-        text.strip()
+            text += '\n\n'
+        text = text.strip()
         return text
 
 
     def getData(self):
         return self._data
+
+    def getHTMLTable(self, index):
+        return self._htmlTables[index]
