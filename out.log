@@ -1,0 +1,123 @@
+2020-04-03 13:26:43,459 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 13:26:43,961 [ERROR]  Could not load model due to The model version is too old to be loaded by this Rasa NLU instance. Either retrain the model, or run with an older version. Model version: 1.8.2 Instance version: 1.9.3.
+2020-04-03 13:26:43,962 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\app.py", line 1167, in run
+    serve(**server_settings)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\server.py", line 892, in serve
+    trigger_events(before_start, loop)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\server.py", line 668, in trigger_events
+    loop.run_until_complete(result)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\asyncio\base_events.py", line 484, in run_until_complete
+    return future.result()
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\run.py", line 258, in load_agent_on_start
+    action_endpoint=endpoints.action,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 271, in load_agent
+    remote_storage=remote_storage,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 938, in load_local_model
+    path_to_model_archive=model_archive,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 387, in load
+    interpreter = NaturalLanguageInterpreter.create(nlu_model)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 54, in create
+    return RasaNLUInterpreter(model_directory=obj)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 274, in __init__
+    self._load_interpreter()
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 297, in _load_interpreter
+    self.interpreter = Interpreter.load(self.model_directory)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\nlu\model.py", line 300, in load
+    Interpreter.ensure_model_compatibility(model_metadata)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\nlu\model.py", line 275, in ensure_model_compatibility
+    "".format(model_version, rasa.__version__)
+rasa.nlu.model.UnsupportedModelError: The model version is too old to be loaded by this Rasa NLU instance. Either retrain the model, or run with an older version. Model version: 1.8.2 Instance version: 1.9.3
+2020-04-03 13:29:50,463 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 13:29:50,969 [ERROR]  Could not load model due to The model version is too old to be loaded by this Rasa NLU instance. Either retrain the model, or run with an older version. Model version: 1.8.2 Instance version: 1.9.3.
+2020-04-03 13:29:50,971 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\app.py", line 1167, in run
+    serve(**server_settings)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\server.py", line 892, in serve
+    trigger_events(before_start, loop)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\sanic\server.py", line 668, in trigger_events
+    loop.run_until_complete(result)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\asyncio\base_events.py", line 484, in run_until_complete
+    return future.result()
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\run.py", line 258, in load_agent_on_start
+    action_endpoint=endpoints.action,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 271, in load_agent
+    remote_storage=remote_storage,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 938, in load_local_model
+    path_to_model_archive=model_archive,
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\agent.py", line 387, in load
+    interpreter = NaturalLanguageInterpreter.create(nlu_model)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 54, in create
+    return RasaNLUInterpreter(model_directory=obj)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 274, in __init__
+    self._load_interpreter()
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\core\interpreter.py", line 297, in _load_interpreter
+    self.interpreter = Interpreter.load(self.model_directory)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\nlu\model.py", line 300, in load
+    Interpreter.ensure_model_compatibility(model_metadata)
+  File "c:\users\owner\appdata\local\programs\python\python36\lib\site-packages\rasa\nlu\model.py", line 275, in ensure_model_compatibility
+    "".format(model_version, rasa.__version__)
+rasa.nlu.model.UnsupportedModelError: The model version is too old to be loaded by this Rasa NLU instance. Either retrain the model, or run with an older version. Model version: 1.8.2 Instance version: 1.9.3
+2020-04-03 13:39:27,554 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 13:42:16,076 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 13:54:26,276 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 15:08:49,926 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 15:11:16,227 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 15:20:44,795 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 15:21:58,102 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 15:21:58,370 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 15:22:07,450 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 15:57:43,308 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 16:00:11,731 [ERROR]  The model predicted the custom action 'action_faq_qa_model', but you didn't configure an endpoint to run this custom action. Please take a look at the docs and set an endpoint configuration via the --endpoints flag. https://rasa.com/docs/rasa/core/actions
+2020-04-03 16:00:11,733 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:00:37,659 [ERROR]  The model predicted the custom action 'action_faq_qa_model', but you didn't configure an endpoint to run this custom action. Please take a look at the docs and set an endpoint configuration via the --endpoints flag. https://rasa.com/docs/rasa/core/actions
+2020-04-03 16:00:37,662 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:02:37,188 [ERROR]  The model predicted the custom action 'action_faq_qa_model', but you didn't configure an endpoint to run this custom action. Please take a look at the docs and set an endpoint configuration via the --endpoints flag. https://rasa.com/docs/rasa/core/actions
+2020-04-03 16:02:37,190 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:03:37,378 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 16:27:23,541 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 16:36:02,709 [ERROR]  The model predicted the custom action 'action_faq_qa_model', but you didn't configure an endpoint to run this custom action. Please take a look at the docs and set an endpoint configuration via the --endpoints flag. https://rasa.com/docs/rasa/core/actions
+2020-04-03 16:36:02,711 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:38:56,607 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 16:40:36,210 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:42:48,919 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 16:43:11,845 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:50:15,672 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 16:50:55,488 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:51:53,668 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 16:52:36,858 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-04-03 16:53:14,778 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 16:57:15,236 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 17:10:53,808 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 17:12:23,759 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 17:44:28,503 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 21:17:41,615 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 21:17:41,870 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 21:26:24,831 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 21:26:25,091 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 22:31:17,065 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 22:32:32,404 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 22:32:32,652 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2020-04-03 22:36:53,831 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 22:43:20,435 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-03 22:44:05,466 [INFO ]  Starting Rasa server on http://localhost:5005
