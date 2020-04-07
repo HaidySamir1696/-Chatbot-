@@ -36,13 +36,13 @@
 
 ## Get Started
 1. create new project in Pycharm and connect it with previously created conda environment
-  * from Pycharm->Settings –> Project -> Project Interpreter
+   * from Pycharm->Settings –> Project -> Project Interpreter
  
 1. create an initial RASA project with the following command:
-  * $ rasa init
+   * $ rasa init
   
 1. In the project root folder we need the following files:
-  * pip install -r requirements.txt 
+   * pip install -r requirements.txt 
   
 1. Now, Clone the repository to replace the initial rasa project files with the prechanged ones
  
