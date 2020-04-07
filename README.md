@@ -22,11 +22,11 @@
  	* $ yarn build
   
 ### In Detailed steps
-1. install yarn
+1.  install yarn
   * https://classic.yarnpkg.com/en/docs/install#windows-stable
-1. clone Scalableminds repo 
+1.  clone Scalableminds repo 
   * $ git clone https://github.com/scalableminds/chatroom.git 
-1. Run the following commands
+1.  Run the following commands
   * $ cd chatroom
   * $ yarn install
   * $ yarn watch
