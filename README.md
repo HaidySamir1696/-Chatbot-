@@ -2,7 +2,7 @@
 
 ## Installation
 
-### Vertual Enviroment
+### Virtual Enviroment
 1. install conda
 2. cd 'project-folder'
 3. conda create --prefix ./venv python=3.7 pip
