@@ -2,7 +2,7 @@
 test*
 *.pyc
 
-cache
+cache/**
 models/**
 
 venv
