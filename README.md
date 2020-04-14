@@ -21,8 +21,8 @@ download models to './models/allennlp/': [https://storage.googleapis.com/allennl
 
 
 #### Tika
-- Tika jar:   [https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.9/tika-server-1.9.jar](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.9/tika-server-1.9.jar)
-- Tika jar md5:   [https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.9/tika-server-1.9.jar.md5](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.9/tika-server-1.9.jar.md5)
+- Tika jar:   [https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar)
+- Tika jar md5:   [https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar.md5](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar.md5)
 - tika env vars:
     - export TikaJarPath='/path-to-tika-folder/'
     - export TIKA_LOG_PATH='/path-to-tika-folder/'
