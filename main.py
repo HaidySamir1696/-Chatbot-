@@ -17,7 +17,7 @@ try:
         pdfParser = pickle.load(f)
         print('Loaded...')
 except:
-    pdfParser = PDFParser(filepath)
+    pdfParser = PDFParser(filepath, include_line_breaks=True)
     with open('./cache/pdf-parser.pickle', 'wb') as f:
         pickle.dump(pdfParser, f)
 

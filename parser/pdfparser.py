@@ -31,8 +31,11 @@ class PDFParser(BaseParser):
     _data = pd.DataFrame(columns=['paragraghs', 'tables'])
     _htmlTables = []
 
-    def __init__(self, pdfPath):
+    _include_line_breaks = False
+
+    def __init__(self, pdfPath, include_line_breaks=False):
         super().__init__()
+        self._include_line_breaks = include_line_breaks
         self._pdfPath = pdfPath
         self.parse()
 
@@ -44,7 +47,7 @@ class PDFParser(BaseParser):
             if tables:
                 self._data = self._data.append(self._parsePage(page, tables), ignore_index=True)
             else:
-                self._data = self._data.append(self._textToParagraphs(page, include_line_breaks=True), ignore_index=True)
+                self._data = self._data.append(self._textToParagraphs(page), ignore_index=True)
 
 
     def _parsePage(self, page, tables):
@@ -75,7 +78,7 @@ class PDFParser(BaseParser):
                 start = search.start()
                 end = search.end()
 
-                processed = processed.append( self._textToParagraphs(pretext[:start-1], include_line_breaks=True), ignore_index=True)
+                processed = processed.append( self._textToParagraphs(pretext[:start-1]), ignore_index=True)
 
                 pgs = self.tableDFtoParagraph(df)
                 pgs = re.split(r'(?:\r?\n){2,}', pgs)
@@ -91,7 +94,7 @@ class PDFParser(BaseParser):
         return processed
 
 
-    def _textToParagraphs(self, text, min_length=200, include_line_breaks=False):
+    def _textToParagraphs(self, text, min_length=200):
         df = pd.DataFrame(columns=['paragraghs', 'tables'])
         pgs = re.split(r'(?:\r?\n){2,}', text.strip())
 
@@ -102,7 +105,7 @@ class PDFParser(BaseParser):
                     df = df.append({'paragraghs': temp_para.strip(), 'tables': None}, ignore_index=True)
                 continue
 
-            if include_line_breaks:
+            if self._include_line_breaks:
                 if len(pg) >= min_length:
                     if temp_para:
                         df = df.append({'paragraghs': temp_para.strip(), 'tables': None}, ignore_index=True)
