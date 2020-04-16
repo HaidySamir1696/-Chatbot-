@@ -10,7 +10,7 @@ pp = pprint.PrettyPrinter(indent=4)
 ### Test CDQA on HyberBus Document
 ############################################
 
-filepath = './data/HyperBusSpecification.pdf'
+filepath = './assets/pdfs/HyperBusSpecification.pdf'
 try:
     with open('./cache/pdf-parser.pickle', 'rb') as f:
         print('Loading pdf-parser object...')
