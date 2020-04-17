@@ -33,9 +33,11 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 #import init_cdqa_pipeline
 import  init_cdqa
-from init_cdqa import CDQA_PIPELINE , process_query
+from init_cdqa import CDQA_PIPELINE , process_query, init_cdqa_pipeline
 
 if CDQA_PIPELINE is None:
+    csv_file = "./data_pdf/csv/converted_pdfs.csv"
+    model_file = "./models/cdqa/bert_qa.joblib"
     CDQA_PIPELINE = init_cdqa_pipeline(csv_file,model_file)
 
 #for test

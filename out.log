@@ -121,3 +121,299 @@ NoneType: None
 2020-04-03 22:36:53,831 [INFO ]  Starting Rasa server on http://localhost:5005
 2020-04-03 22:43:20,435 [INFO ]  Starting Rasa server on http://localhost:5005
 2020-04-03 22:44:05,466 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:23:55,962 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:25:37,916 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:34:21,525 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/favicon.ico'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 475, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2020-04-17 13:40:54,419 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:43:45,191 [INFO ]  Killing Sanic server now.
+2020-04-17 13:48:28,996 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:50:54,834 [INFO ]  Killing Sanic server now.
+2020-04-17 13:52:05,990 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_events
+/webhooks/rest                                     GET                            custom_webhook_CmdlineInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_CmdlineInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id>/trigger_intent    POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2020-04-17 13:52:05,990 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:52:05,991 [DEBUG]  Using the default number of Sanic workers (1).
+2020-04-17 13:52:05,992 [INFO ]  Enabling coroutine debugging. Loop id 94704978367488.
+2020-04-17 13:52:06,490 [DEBUG]  Extracted model to '/tmp/tmp1yzjg5hv'.
+2020-04-17 13:52:07,294 [DEBUG]  Loading the model ...
+2020-04-17 13:52:08,605 [DEBUG]  Finished loading the model.
+2020-04-17 13:52:08,606 [DEBUG]  Building tensorflow prediction graph...
+2020-04-17 13:52:15,135 [DEBUG]  Finished building tensorflow prediction graph.
+2020-04-17 13:52:15,137 [DEBUG]  Failed to load model for 'ResponseSelector'. Maybe you did not provide enough training data and no model was trained or the path '/tmp/tmp1yzjg5hv/nlu' doesn't exist?
+2020-04-17 13:52:15,148 [DEBUG]  Connected to InMemoryTrackerStore.
+2020-04-17 13:52:15,148 [DEBUG]  Connected to lock store 'InMemoryLockStore'.
+2020-04-17 13:52:15,440 [DEBUG]  Extracted model to '/tmp/tmp0v5m4h8y'.
+2020-04-17 13:52:15,445 [DEBUG]  Using yaml library: /media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/ruamel/yaml/__init__.py
+2020-04-17 13:52:15,485 [DEBUG]  Loading the model ...
+2020-04-17 13:52:15,769 [DEBUG]  Finished loading the model.
+2020-04-17 13:52:15,769 [DEBUG]  Building tensorflow prediction graph...
+2020-04-17 13:52:16,688 [DEBUG]  Finished building tensorflow prediction graph.
+2020-04-17 13:52:16,694 [DEBUG]  Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2020-04-17 13:55:56,689 [INFO ]  Killing Sanic server now.
+2020-04-17 13:56:19,742 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 13:57:19,623 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/conversations/1/messages'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 474, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /conversations/1/messages
+2020-04-17 13:58:03,401 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 14:29:35,840 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 475, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /http://localhost:5005/webhooks/rest/webhook not found
+2020-04-17 14:36:40,502 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 475, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks not found
+2020-04-17 14:36:56,195 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 452, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /webhooks/rest/webhook
+2020-04-17 14:39:04,034 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 14:46:35,931 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id>/trigger_intent    POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2020-04-17 14:46:35,959 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-04-17 14:46:36,003 [DEBUG]  Using the default number of Sanic workers (1).
+2020-04-17 14:46:36,011 [INFO ]  Enabling coroutine debugging. Loop id 94275454543808.
+2020-04-17 14:46:36,417 [DEBUG]  Extracted model to '/tmp/tmp1zc12k27'.
+2020-04-17 14:46:40,794 [DEBUG]  Loading the model ...
+2020-04-17 14:46:42,779 [DEBUG]  Finished loading the model.
+2020-04-17 14:46:42,779 [DEBUG]  Building tensorflow prediction graph...
+2020-04-17 14:46:49,063 [DEBUG]  Finished building tensorflow prediction graph.
+2020-04-17 14:46:49,065 [DEBUG]  Failed to load model for 'ResponseSelector'. Maybe you did not provide enough training data and no model was trained or the path '/tmp/tmp1zc12k27/nlu' doesn't exist?
+2020-04-17 14:46:49,075 [DEBUG]  Connected to InMemoryTrackerStore.
+2020-04-17 14:46:49,075 [DEBUG]  Connected to lock store 'InMemoryLockStore'.
+2020-04-17 14:46:49,398 [DEBUG]  Extracted model to '/tmp/tmpev74jsq1'.
+2020-04-17 14:46:49,477 [DEBUG]  Using yaml library: /media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/ruamel/yaml/__init__.py
+2020-04-17 14:46:49,655 [DEBUG]  Loading the model ...
+2020-04-17 14:46:50,012 [DEBUG]  Finished loading the model.
+2020-04-17 14:46:50,013 [DEBUG]  Building tensorflow prediction graph...
+2020-04-17 14:46:51,031 [DEBUG]  Finished building tensorflow prediction graph.
+2020-04-17 14:46:51,122 [DEBUG]  Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2020-04-17 14:47:58,043 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rasa/webhook'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 940, in handle_request
+    handler, args, kwargs, uri, name = self.router.get(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 411, in get
+    return self._get(request.path, request.method, "")
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/router.py", line 452, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /webhooks/rasa/webhook
+2020-04-17 14:48:08,835 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rasa/webhook'
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 936, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore  # noqa
+  File "uvloop/loop.pyx", line 1974, in create_connection
+  File "uvloop/loop.pyx", line 1951, in uvloop.loop.Loop.create_connection
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/sanic/app.py", line 976, in handle_request
+    response = await response
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 462, in receive
+    sender_id = await self._extract_sender(request)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 102, in _extract_sender
+    jwt_payload = await self._decode_bearer_token(req.args.get("token"))
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 82, in _decode_bearer_token
+    await self._fetch_public_key()
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 44, in _fetch_public_key
+    public_key_url, timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/client.py", line 483, in _request
+    timeout=real_timeout
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 523, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 859, in _create_connection
+    req, traces, timeout)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 1004, in _create_direct_connection
+    raise last_exc
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 986, in _create_direct_connection
+    req=req, client_error=client_error)
+  File "/media/ak/storage3/qa-system/venv/lib/python3.7/site-packages/aiohttp/connector.py", line 943, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:5002 ssl:default [Connection refused]
+2020-04-17 14:48:17,606 [DEBUG]  Creating a new tracker for id 'ak'.
+2020-04-17 14:48:17,607 [DEBUG]  Starting a new session for conversation ID 'ak'.
+2020-04-17 14:48:17,607 [DEBUG]  Action 'action_session_start' ended with events '[<rasa.core.events.SessionStarted object at 0x7f01581d58d0>, <rasa.core.events.ActionExecuted object at 0x7f0158209150>]'.
+2020-04-17 14:48:18,133 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:48:18,134 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:48:18,134 [DEBUG]  Received user message 'what is RWDS' with intent '{'name': 'affirm', 'confidence': 0.7330762147903442}' and entities '[]'
+2020-04-17 14:48:18,135 [DEBUG]  Logged UserUtterance - tracker now has 4 events.
+2020-04-17 14:48:18,137 [DEBUG]  Current tracker state [None, None, None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:48:18,138 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:18,142 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:18,142 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:18,143 [DEBUG]  Predicted next action 'utter_happy' with confidence 0.95.
+2020-04-17 14:48:18,144 [DEBUG]  Action 'utter_happy' ended with events '[BotUttered('Great, carry on!', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587127698.1446276)]'.
+2020-04-17 14:48:18,145 [DEBUG]  Current tracker state [None, None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:48:18,145 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:18,151 [DEBUG]  There is no mapped action for the predicted intent, 'affirm'.
+2020-04-17 14:48:18,152 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:18,153 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:18,153 [DEBUG]  Predicted next action 'action_listen' with confidence 0.96.
+2020-04-17 14:48:18,153 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:48:18,155 [DEBUG]  Deleted lock for conversation 'ak'.
+2020-04-17 14:48:50,638 [DEBUG]  Recreating tracker for id 'ak'
+2020-04-17 14:48:50,650 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:48:50,650 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:48:50,651 [DEBUG]  Received user message 'what is RWDS' with intent '{'name': 'affirm', 'confidence': 0.7330762147903442}' and entities '[]'
+2020-04-17 14:48:50,652 [DEBUG]  Logged UserUtterance - tracker now has 8 events.
+2020-04-17 14:48:50,653 [DEBUG]  Current tracker state [None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:48:50,653 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:50,657 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:50,657 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:50,657 [DEBUG]  Predicted next action 'utter_happy' with confidence 0.96.
+2020-04-17 14:48:50,658 [DEBUG]  Action 'utter_happy' ended with events '[BotUttered('Great, carry on!', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587127730.6581395)]'.
+2020-04-17 14:48:50,658 [DEBUG]  Current tracker state [{}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:48:50,659 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:50,662 [DEBUG]  There is no mapped action for the predicted intent, 'affirm'.
+2020-04-17 14:48:50,662 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:50,662 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:50,663 [DEBUG]  Predicted next action 'action_listen' with confidence 0.96.
+2020-04-17 14:48:50,663 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:48:50,664 [DEBUG]  Deleted lock for conversation 'ak'.
+2020-04-17 14:48:58,924 [DEBUG]  Recreating tracker for id 'ak'
+2020-04-17 14:48:58,935 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:48:58,935 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:48:58,936 [DEBUG]  Received user message 'hello' with intent '{'name': 'greet', 'confidence': 0.9974324107170105}' and entities '[]'
+2020-04-17 14:48:58,936 [DEBUG]  Logged UserUtterance - tracker now has 12 events.
+2020-04-17 14:48:58,937 [DEBUG]  Current tracker state [{'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_greet': 1.0}]
+2020-04-17 14:48:58,938 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:58,941 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:58,942 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:58,942 [DEBUG]  Predicted next action 'utter_greet' with confidence 0.96.
+2020-04-17 14:48:58,942 [DEBUG]  Action 'utter_greet' ended with events '[BotUttered('Hey! How are you?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587127738.942805)]'.
+2020-04-17 14:48:58,943 [DEBUG]  Current tracker state [{'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_greet': 1.0}, {'prev_utter_greet': 1.0, 'intent_greet': 1.0}]
+2020-04-17 14:48:58,944 [DEBUG]  There is no memorised next action
+2020-04-17 14:48:58,947 [DEBUG]  There is no mapped action for the predicted intent, 'greet'.
+2020-04-17 14:48:58,948 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:48:58,948 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:48:58,948 [DEBUG]  Predicted next action 'action_listen' with confidence 0.96.
+2020-04-17 14:48:58,949 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:48:58,951 [DEBUG]  Deleted lock for conversation 'ak'.
+2020-04-17 14:57:31,164 [DEBUG]  Creating a new tracker for id 'a78ef04e-ecca-49b5-a092-88b53ae462bf'.
+2020-04-17 14:57:31,165 [DEBUG]  Starting a new session for conversation ID 'a78ef04e-ecca-49b5-a092-88b53ae462bf'.
+2020-04-17 14:57:31,165 [DEBUG]  Action 'action_session_start' ended with events '[<rasa.core.events.SessionStarted object at 0x7f01580bb510>, <rasa.core.events.ActionExecuted object at 0x7f01580bb650>]'.
+2020-04-17 14:57:33,317 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:57:33,317 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:57:33,317 [DEBUG]  Received user message 'how does hyperbus master begin a transaction?' with intent '{'name': 'deny', 'confidence': 0.38151395320892334}' and entities '[]'
+2020-04-17 14:57:33,318 [DEBUG]  Logged UserUtterance - tracker now has 4 events.
+2020-04-17 14:57:33,319 [DEBUG]  Current tracker state [None, None, None, {}, {'intent_deny': 1.0, 'prev_action_listen': 1.0}]
+2020-04-17 14:57:33,320 [DEBUG]  There is no memorised next action
+2020-04-17 14:57:33,323 [DEBUG]  NLU confidence 0.38151395320892334 is lower than NLU threshold 0.40. 
+2020-04-17 14:57:33,323 [DEBUG]  Predicted next action using policy_3_FallbackPolicy
+2020-04-17 14:57:33,323 [DEBUG]  Predicted next action 'action_faq_qa_model' with confidence 1.00.
+2020-04-17 14:57:33,324 [DEBUG]  Calling action endpoint to run action 'action_faq_qa_model'.
+2020-04-17 14:57:41,848 [DEBUG]  Action 'action_faq_qa_model' ended with events '[BotUttered('by driving CS# Low while clock is idle', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587128261.848691), <rasa.core.events.UserUtteranceReverted object at 0x7f01580ac650>]'.
+2020-04-17 14:57:41,849 [DEBUG]  Predicted next action 'action_listen' with confidence 1.00.
+2020-04-17 14:57:41,849 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:57:41,849 [DEBUG]  Deleted lock for conversation 'a78ef04e-ecca-49b5-a092-88b53ae462bf'.
+2020-04-17 14:59:17,706 [DEBUG]  Recreating tracker for id 'a78ef04e-ecca-49b5-a092-88b53ae462bf'
+2020-04-17 14:59:17,734 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:59:17,735 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:59:17,735 [DEBUG]  Received user message 'what is RWDS of hyperbus' with intent '{'name': 'affirm', 'confidence': 0.6463959813117981}' and entities '[]'
+2020-04-17 14:59:17,735 [DEBUG]  Logged UserUtterance - tracker now has 9 events.
+2020-04-17 14:59:17,736 [DEBUG]  Current tracker state [None, None, None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:59:17,736 [DEBUG]  There is no memorised next action
+2020-04-17 14:59:17,739 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:59:17,741 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:59:17,742 [DEBUG]  Predicted next action 'utter_happy' with confidence 0.95.
+2020-04-17 14:59:17,743 [DEBUG]  Action 'utter_happy' ended with events '[BotUttered('Great, carry on!', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587128357.7431338)]'.
+2020-04-17 14:59:17,745 [DEBUG]  Current tracker state [None, None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:59:17,746 [DEBUG]  There is no memorised next action
+2020-04-17 14:59:17,761 [DEBUG]  There is no mapped action for the predicted intent, 'affirm'.
+2020-04-17 14:59:17,762 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:59:17,762 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:59:17,763 [DEBUG]  Predicted next action 'action_listen' with confidence 0.96.
+2020-04-17 14:59:17,763 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:59:17,765 [DEBUG]  Deleted lock for conversation 'a78ef04e-ecca-49b5-a092-88b53ae462bf'.
+2020-04-17 14:59:30,040 [DEBUG]  Recreating tracker for id 'a78ef04e-ecca-49b5-a092-88b53ae462bf'
+2020-04-17 14:59:30,053 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2020-04-17 14:59:30,053 [DEBUG]  Adding following selector key to message property: default
+2020-04-17 14:59:30,054 [DEBUG]  Received user message 'what is RWDS of hyperbus protocol' with intent '{'name': 'affirm', 'confidence': 0.521808922290802}' and entities '[]'
+2020-04-17 14:59:30,056 [DEBUG]  Logged UserUtterance - tracker now has 13 events.
+2020-04-17 14:59:30,057 [DEBUG]  Current tracker state [None, {}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:59:30,058 [DEBUG]  There is no memorised next action
+2020-04-17 14:59:30,062 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:59:30,063 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:59:30,063 [DEBUG]  Predicted next action 'utter_happy' with confidence 0.96.
+2020-04-17 14:59:30,067 [DEBUG]  Action 'utter_happy' ended with events '[BotUttered('Great, carry on!', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {}, 1587128370.0668344)]'.
+2020-04-17 14:59:30,068 [DEBUG]  Current tracker state [{}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}, {'prev_action_listen': 1.0, 'intent_affirm': 1.0}, {'prev_utter_happy': 1.0, 'intent_affirm': 1.0}]
+2020-04-17 14:59:30,068 [DEBUG]  There is no memorised next action
+2020-04-17 14:59:30,076 [DEBUG]  There is no mapped action for the predicted intent, 'affirm'.
+2020-04-17 14:59:30,077 [DEBUG]  NLU confidence threshold met, confidence of fallback action set to core threshold (0.3).
+2020-04-17 14:59:30,077 [DEBUG]  Predicted next action using policy_1_TEDPolicy
+2020-04-17 14:59:30,078 [DEBUG]  Predicted next action 'action_listen' with confidence 0.96.
+2020-04-17 14:59:30,078 [DEBUG]  Action 'action_listen' ended with events '[]'.
+2020-04-17 14:59:30,079 [DEBUG]  Deleted lock for conversation 'a78ef04e-ecca-49b5-a092-88b53ae462bf'.

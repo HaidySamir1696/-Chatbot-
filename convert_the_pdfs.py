@@ -9,6 +9,6 @@ from cdqa.utils.download import download_model
 
 
 
-df = pdf_converter(directory_path='./data/pdf/')
+df = pdf_converter(directory_path='./data_pdf/pdf/')
 #df.head()
-df.to_csv(r'D:\gp\cdQA testing\data_pdf\csv\converted_pdfs.csv', index = False)
+df.to_csv('./data_pdf/csv/converted_pdfs.csv', index = False)
