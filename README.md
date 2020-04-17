@@ -27,7 +27,7 @@ download models to './models/allennlp/': [https://storage.googleapis.com/allennl
     - export TikaJarPath='/path-to-tika-folder/'
     - export TIKA_LOG_PATH='/path-to-tika-folder/'
     - export TIKA_PATH='/path-to-tika-folder/'
-    - export TIKA_VERSION='1.19'
+    - export TIKA_VERSION='1.9'
     - export TIKA_SERVER_JAR='/path-to-tika-folder/tika-server.jar'
 
 

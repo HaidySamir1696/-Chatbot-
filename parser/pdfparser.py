@@ -44,7 +44,7 @@ class PDFParser(BaseParser):
             if tables:
                 self._data = self._data.append(self._parsePage(page, tables), ignore_index=True)
             else:
-                self._data = self._data.append(self._textToParagraphs(page), ignore_index=True)
+                self._data = self._data.append(self._textToParagraphs(page, include_line_breaks=True), ignore_index=True)
 
 
     def _parsePage(self, page, tables):
@@ -75,7 +75,7 @@ class PDFParser(BaseParser):
                 start = search.start()
                 end = search.end()
 
-                processed = processed.append( self._textToParagraphs(pretext[:start-1]), ignore_index=True)
+                processed = processed.append( self._textToParagraphs(pretext[:start-1], include_line_breaks=True), ignore_index=True)
 
                 pgs = self.tableDFtoParagraph(df)
                 pgs = re.split(r'(?:\r?\n){2,}', pgs)
@@ -91,11 +91,31 @@ class PDFParser(BaseParser):
         return processed
 
 
-    def _textToParagraphs(self, text):
+    def _textToParagraphs(self, text, min_length=200, include_line_breaks=False):
         df = pd.DataFrame(columns=['paragraghs', 'tables'])
-        pgs = re.split(r'(?:\r?\n){2,}', text)
+        pgs = re.split(r'(?:\r?\n){2,}', text.strip())
+
+        temp_para = ''
         for pg in pgs:
-            df = df.append({'paragraghs': pg.strip(), 'tables': None}, ignore_index=True)
+            if pg.isspace():
+                if temp_para:
+                    df = df.append({'paragraghs': temp_para.strip(), 'tables': None}, ignore_index=True)
+                continue
+
+            if include_line_breaks:
+                if len(pg) >= min_length:
+                    if temp_para:
+                        df = df.append({'paragraghs': temp_para.strip(), 'tables': None}, ignore_index=True)
+                        temp_para = ""
+                        df = df.append({'paragraghs': pg.replace("\n", "").strip(), 'tables': None}, ignore_index=True)
+                    else:
+                        df = df.append({'paragraghs': pg.replace("\n", "").strip(), 'tables': None}, ignore_index=True)
+                else:
+                    line = pg.replace("\n", " ").strip()
+                    temp_para = temp_para + f" {line}"
+            else:
+                df = df.append({'paragraghs': pg.replace("\n", "").strip(), 'tables': None}, ignore_index=True)
+
         return df
 
 
