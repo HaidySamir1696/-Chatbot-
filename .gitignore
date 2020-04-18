@@ -2,8 +2,8 @@
 test*
 *.pyc
 
-cache/**
-models/**
-
 venv
 env
+
+__pycache__
+__pycache__/**
