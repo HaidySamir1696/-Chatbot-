@@ -25,3 +25,7 @@
 ## say goodbye
 * goodbye
   - utter_goodbye
+
+## bot challenge
+* bot_challenge
+  - action_faq_qa_model

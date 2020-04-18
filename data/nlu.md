@@ -48,3 +48,10 @@
 - not very good
 - extremely sad
 - so sad
+
+## lookup:protocolNamesDocument
+data/lookup_tables/protocolNamesDocument.txt
+
+## intent:bot_challenge
+- in [HyperBusSpecification](protocolNamesDocument) protocol, find
+- what is something in [protocolName](protocolNamesDocument:protocolName) datasheet?

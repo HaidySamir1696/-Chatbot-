@@ -1,4 +1,4 @@
-from parser.pdfparser import PDFParser
+from core.parser.pdfparser import PDFParser
 import pickle
 import pandas as pd
 import pprint
@@ -10,27 +10,29 @@ pp = pprint.PrettyPrinter(indent=4)
 ### Test CDQA on HyberBus Document
 ############################################
 
-filepath = './assets/pdfs/HyperBusSpecification.pdf'
-try:
-    with open('./cache/pdf-parser.pickle', 'rb') as f:
-        print('Loading pdf-parser object...')
-        pdfParser = pickle.load(f)
-        print('Loaded...')
-except:
-    pdfParser = PDFParser(filepath, include_line_breaks=True)
-    with open('./cache/pdf-parser.pickle', 'wb') as f:
-        pickle.dump(pdfParser, f)
+# filepath = './assets/pdfs/HyperBusSpecification.pdf'
+# try:
+#     with open('./cache/pdf-parser.pickle', 'rb') as f:
+#         print('Loading pdf-parser object...')
+#         pdfParser = pickle.load(f)
+#         print('Loaded...')
+# except:
+#     pdfParser = PDFParser(filepath, include_line_breaks=True)
+#     with open('./cache/pdf-parser.pickle', 'wb') as f:
+#         pickle.dump(pdfParser, f)
 
 
 
-paragraphs = pdfParser.getData().loc[:,'paragraghs'].to_numpy()
+# paragraphs = pdfParser.getData().loc[:,'paragraghs'].to_numpy()
 
-############################################
-### CDQA df
-############################################
-df = pd.DataFrame(columns=["title", "paragraphs"])
-df = df.append({'title': 'HyperBus', 'paragraphs':paragraphs}, ignore_index=True)
+# ############################################
+# ### CDQA df
+# ############################################
+# df = pd.DataFrame(columns=["title", "paragraphs"])
+# df = df.append({'title': 'HyperBus', 'paragraphs':paragraphs}, ignore_index=True)
 
+
+df = pd.read_pickle('./cache/converted_pdfs.pickle')
 
 from cdqa.pipeline import QAPipeline
 
@@ -44,21 +46,27 @@ from cdqa.pipeline import QAPipeline
 ## # gpu version    './models/cdqa/bert_qa_vGPU-sklearn.joblib'
 ## # distilbert     './models/cdqa/distilbert_qa.joblib'
 ############################################
+from datetime import datetime
+
 cdqa_pipeline = QAPipeline(reader='./models/cdqa/bert_qa.joblib', max_df=1.0, retriever="bm25")
 
 cdqa_pipeline.fit_retriever(df=df)
 
 while 1:
     query = input('Your Query: ')
+
+    if (query == '/stop'): break
+
     prediction = cdqa_pipeline.predict(query, n_predictions=3)
 
     for p in prediction:
         print('-'*30)
-        print('query: {}'.format(query))
-        print('answer: {}'.format(p[0]))
-        print('title: {}'.format(p[1]))
-        print('paragraph: {}'.format(p[2]))
-        print('rank: {}'.format(p[3]))
+        # print('query: {}'.format(query))
+        # print('answer: {}'.format(p[0]))
+        # print('title: {}'.format(p[1]))
+        # print('paragraph: {}'.format(p[2]))
+        # print('rank: {}'.format(p[3]))
+        pp.pprint(p)
         print('-'*30)
 
 
