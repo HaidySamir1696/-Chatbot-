@@ -31,7 +31,6 @@ paragraphs = pdfParser.getData().loc[:,'paragraghs'].to_numpy()
 df = pd.DataFrame(columns=["title", "paragraphs"])
 df = df.append({'title': 'HyperBus', 'paragraphs':paragraphs}, ignore_index=True)
 
-
 from cdqa.pipeline import QAPipeline
 
 ############################################
@@ -47,6 +46,8 @@ from cdqa.pipeline import QAPipeline
 cdqa_pipeline = QAPipeline(reader='./models/cdqa/bert_qa.joblib', max_df=1.0, retriever="bm25")
 
 cdqa_pipeline.fit_retriever(df=df)
+with open('./cache/paragraphs.json', 'w') as f:
+    f.write(pd.DataFrame.to_json(df))
 
 while 1:
     query = input('Your Query: ')
