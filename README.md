@@ -56,3 +56,8 @@ download models to './models/cdqa/': [https://github.com/cdqa-suite/cdQA/release
     
  **FINALLY**, using http://localhost:8080/index.html, your chatbot will speak up the answer 
 
+
+
+### Run pdfconverter
+1. activate enviroment
+2. python pdfconverter.py -file /path/to/pdffile -cache /path/to/cachefile.pickle
