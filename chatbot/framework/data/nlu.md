@@ -50,7 +50,7 @@
 - so sad
 
 ## lookup:protocolNamesDocument
-data/lookup_tables/protocolNamesDocument.txt
+framework/data/lookup_tables/protocolNamesDocument.txt
 
 ## intent:bot_challenge
 - in [HyperBusSpecification](protocolNamesDocument) protocol, find
