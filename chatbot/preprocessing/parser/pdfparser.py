@@ -6,15 +6,6 @@ import camelot
 import random
 import re
 
-
-
-# import pprint
-
-
-# pp = pprint.PrettyPrinter(indent=4)
-
-
-
 class BaseParser(object):
 
     def parse(self):
@@ -28,13 +19,15 @@ class BaseParser(object):
 class PDFParser(BaseParser):
 
     _pdfPath = None
+    _name = ''
     _data = pd.DataFrame(columns=['paragraghs', 'tables'])
     _htmlTables = []
 
     _include_line_breaks = False
 
-    def __init__(self, pdfPath, include_line_breaks=False):
+    def __init__(self, pdfPath, filename, include_line_breaks=False):
         super().__init__()
+        self._name = filename
         self._include_line_breaks = include_line_breaks
         self._pdfPath = pdfPath
         self.parse()
@@ -127,6 +120,9 @@ class PDFParser(BaseParser):
             raise 'Please Provide a path to PDF file'
 
         response = parser.from_file(self._pdfPath, xmlContent=True)
+        if not response['content']:
+            raise '>> Error while parsing using Tika, No content available in tika response.'
+            return 
         xmlBody = response['content'].split('<body>')[1].split('</body>')[0]
         xmlBody = xmlBody.replace("<p>", "").replace("</p>", "").replace("<div>", "").replace("</div>","").replace("<p />","")
         xmlBody = xmlBody.split("""<div class="page">""")[1:]
@@ -159,3 +155,6 @@ class PDFParser(BaseParser):
 
     def getHTMLTable(self, index):
         return self._htmlTables[index]
+
+    def getFileName(self):
+        return self._name

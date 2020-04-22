@@ -1,2 +1,0 @@
-HyperBusSpecification
-I2C
