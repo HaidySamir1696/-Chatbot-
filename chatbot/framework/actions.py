@@ -5,16 +5,13 @@ from rasa_sdk.executor import CollectingDispatcher
 
 from qa_system import init_QA_PIPELINE, process_query
 
+# Initialize QA Pipeline on action bootsrtaping
+init_QA_PIPELINE()
+
 class ActionFaq(Action):
     """
         Question and Answer action used by RASA Framework to retrieve response on document related questions.
     """
-
-    def __init__(self):
-        super().__init__()
-
-        # Initialize QA Pipeline on action bootsrtaping
-        init_QA_PIPELINE()
 
     def name(self) -> Text:
         return "action_faq_qa_model"
