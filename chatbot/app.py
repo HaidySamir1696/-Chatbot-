@@ -81,8 +81,11 @@ def train_rasa():
     RASA_MODEL_PATH = path.abspath(path.join(dirname, './models/rasa-model.tar.gz'))
     if path.exists(RASA_MODEL_PATH):
         return
-    print('>> Train RASA model')
+    print('>> Training RASA model')
     subprocess.call('rasa train --out ./models/ --fixed-model-name rasa-model --data ./framework/data/ --config ./framework/config.yml --domain ./framework/domain.yml', shell=True)
+    
+    if not path.exists(RASA_MODEL_PATH):
+        raise 'Erorr while training RASA model.'
     return
 
 def run(bert_gpu_version=False):
@@ -91,7 +94,6 @@ def run(bert_gpu_version=False):
 
     rasa_server_process = subprocess.Popen("""rasa run --model ./models/rasa-model.tar.gz --endpoints ./framework/endpoints.yml --log-file ./logs/rasa-server.log -t abc --cors "*" --enable-api --credentials ./framework/credentials.yml""", shell=True)
     actions_server_process = subprocess.Popen("rasa run actions --actions framework.actions", shell=True)
-    actions_server_process.wait()
 
     wait_process = [p.wait() for p in [rasa_server_process, actions_server_process]]
 
@@ -110,6 +112,7 @@ if __name__ == "__main__":
     run_subparser = subparsers.add_parser('run', help='Start chatbot server and action server')
     run_subparser.set_defaults(command='run')
     run_subparser.add_argument('--gpu', action="store_true", default=False, help='Use BERT GPU model version')
+    
     
     # preprocessing pdf parser cli
     parse_subparser = subparsers.add_parser('parse', help='Preprocess PDF file')
