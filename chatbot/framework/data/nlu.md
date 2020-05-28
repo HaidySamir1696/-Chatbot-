@@ -49,9 +49,11 @@
 - extremely sad
 - so sad
 
-## lookup:protocolNamesDocument
+## lookup:protocol_name
 framework/data/lookup_tables/protocolNamesDocument.txt
 
 ## intent:bot_challenge
-- in [HyperBusSpecification](protocolNamesDocument) protocol, find
-- what is something in [protocolName](protocolNamesDocument:protocolName) datasheet?
+- in [HyperBusSpecification](protocol_name) protocol, find 
+- what is something in [I2C](protocol_name) datasheet?
+- please send me the figure of Read Transaction, Single Initial Latency Count in [hyperbusspecification](protocol_name)
+- what does Open-Drain for Bidirectional Communication in [I2C](protocol_name) means? 

@@ -27,5 +27,11 @@
   - utter_goodbye
 
 ## bot challenge
-* bot_challenge
+* bot_challenge {"protocol_name":"HyperBusSpecification"}
+  - slot {"protocol_name":"HyperBusSpecification"}
+  - action_faq_qa_model
+
+## bot challenge
+* bot_challenge {"protocol_name":"I2C"}
+  - slot {"protocol_name":"I2C"}
   - action_faq_qa_model

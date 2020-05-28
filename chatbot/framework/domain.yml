@@ -6,6 +6,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - bot_protocol_name
 
 responses:
   utter_greet:
@@ -34,8 +35,9 @@ actions:
   - action_faq_qa_model
 
 entities:
- - protocolNamesDocument
+ - protocol_name
 
 slots:
-   protocolNamesDocument:
+   protocol_name:
       type: text
+      initial_value: "none"
