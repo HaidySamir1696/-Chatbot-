@@ -16,7 +16,7 @@ TIKA_JAR_MD5_PATH   = path.join(dirname, './models/tika/tika-server.jar.md5')
 
 def get_bert_model(gpu_version=False):
     """
-        Retrieve BEST DPU|GPU model if not exists in chatbot/models/cdqa/, and set an ENV VAR with model path 
+        Retrieve BEST CPU|GPU model if not exists in chatbot/models/cdqa/, and set an ENV VAR with model path 
 
         @params:
             gpu_version: bool -> flag to use GPU version of BERT model

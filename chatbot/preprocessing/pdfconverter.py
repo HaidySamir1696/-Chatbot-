@@ -1,7 +1,6 @@
 import pandas as pd
 import pickle
 
-from argparse import ArgumentParser
 from os import path
 
 from preprocessing.parser import PDFParser
