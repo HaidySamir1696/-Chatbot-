@@ -18,12 +18,11 @@ QA_PIPELINE = None
 dirname = path.abspath(path.dirname(__file__))
 
 def init_QA_PIPELINE():
-    """
-        Main QA_PIPELINE intialization method,
-        It should be called once on bootstraping of the system.
+    """Main QA_PIPELINE intialization method, It should be called once on
+    bootstraping of the system.
 
-        @requirements:
-            BERT_MODEL_PATH enviroment variable with model path
+    @requirements:
+        BERT_MODEL_PATH enviroment variable with model path
     """
 
     global QA_PIPELINE
@@ -46,71 +45,78 @@ def init_QA_PIPELINE():
     return QA_PIPELINE
 
 
-
 def process_query(query, document):
-    """
-        Main quary method that call QA_PIPELINE to predict short answer based on quary, and retrieve figures and table data from loaded document
+    """Main quary method that call QA_PIPELINE to predict short answer based on
+    quary, and retrieve figures and table data from loaded document.
 
-        @params:
-            query: str -> user question
-            document: str -> document file name to be loaded
+    @params:
+        query: str -> user question
+        document: str -> document file name to be loaded
 
-        @return:
-            response holds shortanswer, paragraph, table_data, figure_id
+    @return:
+        response holds shortanswer, paragraph, table_data, figure_id
     """
     global QA_PIPELINE
     if (QA_PIPELINE == None):
         init_QA_PIPELINE()
+
+    
+    try:
+        if(str(document) == "None"):
+            DOC_FILE_PDF = path.join(dirname, '../assets/pdfs/HyperBusSpecification.pdf')
+            DOC_FILE_DF = path.join(dirname, '../assets/converted_documents/converted_pdfs.pickle')
+        else:
+            DOC_FILE_PDF    = path.join(dirname, '../assets/pdfs/', str(document) +".pdf")
+            DOC_FILE_DF     = path.join(dirname, '../assets/converted_documents/', str(document)+".pickle")
+
+        # df = cdqa_like_df(pd.read_pickle(DOC_FILE_DF))
+        df = pd.read_pickle(DOC_FILE_DF)
+        QA_PIPELINE.fit_retriever(df=df)
+    
+        # Make a prediction on user query
+        prediction = QA_PIPELINE.predict(query=query)
+    
+        # Retrieve figures if any
+        # TODO: TO_BE_IMPLEMENTED Retrieve prediction page number to avoid looping through all pdf file pages
+        DOC_PAGE_NUM_OF_PREDICTION = 0
+        figure_id = handle_figures(DOC_FILE_PDF, prediction=prediction, page_number=DOC_PAGE_NUM_OF_PREDICTION)
+    
+        # Retrieve table data if any
+        # TODO: TO_BE_IMPLEMENTED Retrieve table data from prediction object if ant
+        table_data = None
+    
+    
+        # Generate response data
+        # TODO: TO_BE_IMPLEMENTED append figures and table data to response, change response to JSON format
+        response = prediction[0]
+        if prediction[2]:
+            response = f'{prediction[0]} \n\n paragraph: \n {prediction[2]}'
+        return response
+    except Exception as e:
+        print(2, e)
 
     # Retrieve Data of PDF and fit model
     # TODO: 1. TO_BE_IMPLEMENTED load specific file using extracted document name from question
     # TODO: 2. After loading file use [cdqa_like_df] from preprocessing.pdfconverter and pass loaded object to it to convert data frame to cdqa df
         # TODO: 2. _EXPLANATION_ pickles files are an object of PDFParser not an pandas dataframe
         # TODO: 2. _EXPLANATION_ our object has df with ['paragraghs', 'tables'], and cdqa requires df with ['title', 'paragraphs']
-    # DOC_FILE_PDF = path.join(dirname, '../assets/pdfs/HyperBusSpecification.pdf')
-    # DOC_FILE_DF = path.join(dirname, '../assets/converted_documents/converted_pdfs.pickle')
-    DOC_FILE_PDF    = path.join(dirname, '../assets/pdfs/', document+".pdf")
-    DOC_FILE_DF     = path.join(dirname, '../assets/converted_documents/', document+".pickle")
-
-    # df = cdqa_like_df(pd.read_pickle(DOC_FILE_DF))
-    df = pd.read_pickle(DOC_FILE_DF)
-    QA_PIPELINE.fit_retriever(df=df)
-
-    # Make a prediction on user query
-    prediction = QA_PIPELINE.predict(query=query)
-
-    # Retrieve figures if any
-    # TODO: TO_BE_IMPLEMENTED Retrieve prediction page number to avoid looping through all pdf file pages
-    DOC_PAGE_NUM_OF_PREDICTION = 0
-    figure_id = handle_figures(DOC_FILE_PDF, prediction=prediction, page_number=DOC_PAGE_NUM_OF_PREDICTION)
-
-    # Retrieve table data if any
-    # TODO: TO_BE_IMPLEMENTED Retrieve table data from prediction object if ant
-    table_data = None
-
-
-    # Generate response data
-    # TODO: TO_BE_IMPLEMENTED append figures and table data to response, change response to JSON format
-    response = prediction[0]
-    if prediction[2]:
-        response = f'{prediction[0]} \n\n paragraph: \n {prediction[2]}'
-    return response
-
+    
 
 
 
 def handle_figures(pdf_scr, prediction, page_number=None):
+    """Main figures handler method it search for prediction short answer inside
+    pdf file and highlight it.
+
+    @params:
+        pdf_scr: str -> pdf file path to search inside
+        prediction: object -> QA_PIPELINE prediction object
+
+    @return:
+        figure id saved in assets/imgs/{fig_id}.png
     """
-        Main figures handler method it search for prediction short answer inside pdf file and highlight it
 
-        @params:
-            pdf_scr: str -> pdf file path to search inside
-            prediction: object -> QA_PIPELINE prediction object
-
-        @return:
-            figure id saved in assets/imgs/{fig_id}.png
-    """
-
+    # TODO: TO_BE_IMPLEMENTED[After process_query function TODO] delete looping through all pages and use page_number argument for more efficiency
     # TODO: TO_BE_IMPLEMENTED[After process_query function TODO] delete looping through all pages and use page_number argument for more efficiency
 
     # TODO: TO_BE_IMPLEMENTED create a temp file for each image [we shouldn't delete images to be able to display them in client side]
