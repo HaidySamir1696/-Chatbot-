@@ -118,7 +118,7 @@ if __name__ == "__main__":
     parse_subparser = subparsers.add_parser('parse', help='Preprocess PDF file')
     parse_subparser.set_defaults(command='parse')
     parse_subparser.add_argument('--file', help='PDF document path to convert')
-    parse_subparser.add_argument('--dest-dir', help='Directory path to cache parsing process')
+    parse_subparser.add_argument('--dest-dir', default='./assets/converted_documents', help='Directory path to cache parsing process')
     parse_subparser.add_argument('--name', help='PDF document name to store on desk')
     parse_subparser.add_argument('--include-line-breaks', action="store_true", default=False, help='if true PDFParser will merge small paragraphs together')
 
