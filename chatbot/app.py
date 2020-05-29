@@ -15,11 +15,11 @@ TIKA_JAR_PATH       = path.join(dirname, './models/tika/tika-server.jar')
 TIKA_JAR_MD5_PATH   = path.join(dirname, './models/tika/tika-server.jar.md5')
 
 def get_bert_model(gpu_version=False):
-    """
-        Retrieve BEST CPU|GPU model if not exists in chatbot/models/cdqa/, and set an ENV VAR with model path 
+    """Retrieve BEST CPU|GPU model if not exists in chatbot/models/cdqa/, and
+    set an ENV VAR with model path.
 
-        @params:
-            gpu_version: bool -> flag to use GPU version of BERT model
+    @params:
+        gpu_version: bool -> flag to use GPU version of BERT model
     """
     dist_path = path.join(dirname, './models/cdqa/')
 
@@ -42,15 +42,13 @@ def get_bert_model(gpu_version=False):
 
 
 def get_tika_jar():
-    """
-        Retrieve Tika JAR file if not exist in chatbot/models/tika, and set ENV VARS required by tika script
-    """
+    """Retrieve Tika JAR file if not exist in chatbot/models/tika, and set ENV
+    VARS required by tika script."""
     dist_path = path.join(dirname, './models/tika/')
 
     if getenv('TIKA_SERVER_JAR', False):
-        """
-            Check if TIKA_SERVER_JAR set before to avoid download duplicate files
-        """
+        """Check if TIKA_SERVER_JAR set before to avoid download duplicate
+        files."""
         return
     
     JAR_URL = 'https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar'
@@ -101,7 +99,12 @@ def run(bert_gpu_version=False):
     actions_server_process.kill()
     rasa_server_process.kill()
 
-
+def run_gui():
+    yarnv = subprocess.call("yarn -v", shell=True)
+    if(yarnv):
+        raise ValueError("""Error: you must install yarn package manager  
+            install yarn from here: https://classic.yarnpkg.com/en/docs/install""")
+    subprocess.Popen("cd gui && yarn install && yarn serve", shell=True)
 
 if __name__ == "__main__":
 
@@ -125,6 +128,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.command == 'run':
+        run_gui()
         train_rasa()
         run(args.gpu)
 
