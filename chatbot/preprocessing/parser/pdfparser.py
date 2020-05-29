@@ -83,7 +83,11 @@ class PDFParser(BaseParser):
                 pretext = pretext[end:]
 
             except Exception as e:
-                print(str(e))
+                print(1, str(e))
+        try:
+            processed = processed.append( self._textToParagraphs(pretext), ignore_index=True)
+        except Exception as e:
+            print(0, str(e))
         return processed
 
 
