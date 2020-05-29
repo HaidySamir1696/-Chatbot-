@@ -94,6 +94,7 @@ def process_query(query, document):
         return response
     except Exception as e:
         print(2, e)
+        return f'There is no protocol called {document} \n Please specify the right name of the protocol in your question. \n\n Ex: What is RWDS in HyperBusSpecification protocol?'
 
     # Retrieve Data of PDF and fit model
     # TODO: 1. TO_BE_IMPLEMENTED load specific file using extracted document name from question
