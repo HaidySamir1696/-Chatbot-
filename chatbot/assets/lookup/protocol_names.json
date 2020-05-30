@@ -8,5 +8,8 @@
   "hyper_bus": "HyperBusSpecification",
   "hyper bus": "HyperBusSpecification",
   "Hyper Bus Specification": "HyperBusSpecification",
-  "hyper bus specification": "HyperBusSpecification"
+	"hyper bus specification": "HyperBusSpecification",
+	"I2C": "I2c",
+	"i2c": "I2c",
+	"I2c": "I2c"
 }
