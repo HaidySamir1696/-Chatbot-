@@ -3,6 +3,7 @@ import pandas as pd
 import PyPDF2
 import fitz
 import os
+import json
 
 from os import path
 from PIL import Image
@@ -59,6 +60,10 @@ def process_query(query, document):
     global QA_PIPELINE
     if (QA_PIPELINE == None):
         init_QA_PIPELINE()
+    
+    ALT_NAME_FILE = path.join(dirname,"../assets/lookup/protocol_names.json")
+    user_doc = document
+    
 
     
     try:
@@ -66,6 +71,11 @@ def process_query(query, document):
             DOC_FILE_PDF = path.join(dirname, '../assets/pdfs/HyperBusSpecification.pdf')
             DOC_FILE_DF = path.join(dirname, '../assets/converted_documents/converted_pdfs.pickle')
         else:
+            alt={}
+            with open(ALT_NAME_FILE) as f:
+                alt = json.load(f)
+
+                document = alt[document]
             DOC_FILE_PDF    = path.join(dirname, '../assets/pdfs/', str(document) +".pdf")
             DOC_FILE_DF     = path.join(dirname, '../assets/converted_documents/', str(document)+".pickle")
 
@@ -94,7 +104,7 @@ def process_query(query, document):
         return response
     except Exception as e:
         print(2, e)
-        return f'There is no protocol called {document} \n Please specify the right name of the protocol in your question. \n\n Ex: What is RWDS in HyperBusSpecification protocol?'
+        return f'There is no protocol called {user_doc} \n Please specify the right name of the protocol in your question. \n\n Ex: What is RWDS in HyperBusSpecification protocol?'
 
     # Retrieve Data of PDF and fit model
     # TODO: 1. TO_BE_IMPLEMENTED load specific file using extracted document name from question
