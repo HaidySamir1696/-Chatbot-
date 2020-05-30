@@ -74,7 +74,6 @@ def process_query(query, document):
             alt={}
             with open(ALT_NAME_FILE) as f:
                 alt = json.load(f)
-
                 document = alt[document]
             DOC_FILE_PDF    = path.join(dirname, '../assets/pdfs/', str(document) +".pdf")
             DOC_FILE_DF     = path.join(dirname, '../assets/converted_documents/', str(document)+".pickle")

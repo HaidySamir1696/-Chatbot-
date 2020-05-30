@@ -1,17 +1,19 @@
 # QA-System
 
-
-
 ## Start QA-System
+
 1. clone git repo `git clone https://github.com/HaidySamir1696/-Chatbot-.git`
 2. `cd /{git-repo-path}/chatbot`
-3. [Activate python environment if you have one](#Python-virtual-environment)
-4. `python app.py run` or `python app.py run --gpu` to use gpu version of model
+3. [Activate python environment](#Python-virtual-environment)
+4. If you use windows operating system, run this command to install py-tourch `pip install torch===1.2.0 torchvision===0.6.0 -f https://download.pytorch.org/whl/torch_stable.html`
+5. `python app.py run` or `python app.py run --gpu` to use gpu version of model
 
 ---
 
 ## CLI
-- __All CLIs should executed from `/{git-repo-path}/chatbot/` directory where app.py exist__
+
+- **All CLIs should executed from `/{git-repo-path}/chatbot/` directory where app.py exist**
+
 ```
 CLI Interface For Chatbot Application
 
@@ -48,22 +50,10 @@ optional arguments:
 
 ---
 
-## Client Interface GUI
-1. Install [yarn](https://classic.yarnpkg.com/en/docs/install)
-2. clone Scalableminds repo 
-   - `git clone https://github.com/scalableminds/chatroom.git` 
-3. Run the following commands
-   - `cd chatroom`
-   - `yarn install`
-   - `yarn watch`
-   - `yarn serve`
-   - `yarn build`
-4. Open `http://localhost:8080/index.html`
-
----
-
 ## Python virtual environment
-- __(Optional)__ Create python virtual environment for project packages to avoid conflict with global environment
+
+- **(Optional)** Create python virtual environment for project packages to avoid conflict with global environment
+
 1. install conda | anaconda | miniconda
 2. `conda create --name env_name python=3.7 pip` or to specify a location for env `conda create --prefix ./path-to-directory/env_name python=3.7 pip`
 3. `cd /{project-git-repo-directory}/`
@@ -73,19 +63,35 @@ optional arguments:
 ---
 
 ## Models and Tools
-- __(No need to download manually)__ `python app.py run` will download required files and set required env vars
+
+- **(No need to download manually)** `python app.py run` will download required files and set required env vars and run gui
 
 ### CDQA (BERT model)
+
 - BERT model
-   - CPU version: [bert_qa.joblib](https://github.com/cdqa-suite/cdQA/releases/download/bert_qa/bert_qa.joblib)
-   - CPU version: [bert_qa_vGPU-sklearn.joblib](https://github.com/cdqa-suite/cdQA/releases/download/bert_qa_vGPU/bert_qa_vGPU-sklearn.joblib)
+  - CPU version: [bert_qa.joblib](https://github.com/cdqa-suite/cdQA/releases/download/bert_qa/bert_qa.joblib)
+  - CPU version: [bert_qa_vGPU-sklearn.joblib](https://github.com/cdqa-suite/cdQA/releases/download/bert_qa_vGPU/bert_qa_vGPU-sklearn.joblib)
 
 ### Tika Apache server
-- Tika jar:   [tika-server-1.19.jar](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar)
-- Tika jar md5:   [tika-server-1.19.jar.md5](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar.md5)
+
+- Tika jar: [tika-server-1.19.jar](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar)
+- Tika jar md5: [tika-server-1.19.jar.md5](https://repo1.maven.org/maven2/org/apache/tika/tika-server/1.19/tika-server-1.19.jar.md5)
 - Tika env vars:
-    - export TikaJarPath='/{path-to-tika-folder}/'
-    - export TIKA_LOG_PATH='/{path-to-tika-folder}/'
-    - export TIKA_PATH='/{path-to-tika-folder}/'
-    - export TIKA_VERSION='1.19'
-    - export TIKA_SERVER_JAR='/{path-to-tika-folder}/tika-server.jar'
+  - export TikaJarPath='/{path-to-tika-folder}/'
+  - export TIKA_LOG_PATH='/{path-to-tika-folder}/'
+  - export TIKA_PATH='/{path-to-tika-folder}/'
+  - export TIKA_VERSION='1.19'
+  - export TIKA_SERVER_JAR='/{path-to-tika-folder}/tika-server.jar'
+
+### Client Interface GUI
+
+1. Install [yarn](https://classic.yarnpkg.com/en/docs/install)
+2. clone Scalableminds repo
+   - `git clone https://github.com/scalableminds/chatroom.git`
+3. Run the following commands
+   - `cd chatroom`
+   - `yarn install`
+   - `yarn watch`
+   - `yarn serve`
+   - `yarn build`
+4. Open `http://localhost:8080/index.html`
