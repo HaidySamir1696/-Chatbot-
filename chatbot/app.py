@@ -128,8 +128,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.command == 'run':
-        run_gui()
         train_rasa()
+        run_gui()
         run(args.gpu)
 
     if args.command == 'parse':
