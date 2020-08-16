@@ -1,0 +1,37 @@
+html {
+    font-size: 10px;
+}
+
+.header {
+    font-size: 1.6rem;
+    padding: 2rem 5rem
+}
+
+.profile {
+    float: left;
+}
+
+.profile__logo--img {
+    width: 20rem;
+}
+
+.nav ul {
+    float: right;
+    list-style: none;
+
+}
+
+.nav ul li {
+    display: inline-block;
+}
+
+.nav ul li:not(:last-child) {
+    margin-right: 3rem;
+}
+
+
+.nav__item:link,
+.nav__item:visited {
+    text-decoration: none;
+    color: rgb(168, 12, 47);
+}

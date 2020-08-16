@@ -4,11 +4,12 @@ import PyPDF2
 import fitz
 import os
 import json
+import pickle
 
 from os import path
 from PIL import Image
 from cdqa.pipeline import QAPipeline
-# from preprocessing.pdfconverter import cdqa_like_df
+from preprocessing.pdfconverter import cdqa_like_df
 
 
 
@@ -67,9 +68,8 @@ def process_query(query, document):
 
     
     try:
-        if(str(document) == "None"):
-            DOC_FILE_PDF = path.join(dirname, '../assets/pdfs/HyperBusSpecification.pdf')
-            DOC_FILE_DF = path.join(dirname, '../assets/converted_documents/converted_pdfs.pickle')
+        if(str(document) == "None"  or str(document) == "none"):
+            return f'There is no protocol name specified or there is no protocol exist \n Please specify the right name of the protocol in your question. \n\n Ex: What is RWDS in HyperBusSpecification protocol?'
         else:
             alt={}
             with open(ALT_NAME_FILE) as f:
@@ -78,8 +78,12 @@ def process_query(query, document):
             DOC_FILE_PDF    = path.join(dirname, '../assets/pdfs/', str(document) +".pdf")
             DOC_FILE_DF     = path.join(dirname, '../assets/converted_documents/', str(document)+".pickle")
 
-        # df = cdqa_like_df(pd.read_pickle(DOC_FILE_DF))
-        df = pd.read_pickle(DOC_FILE_DF)
+        obj = None
+        with open(DOC_FILE_DF, 'rb') as f:
+            obj = pickle.load(f)
+        df = cdqa_like_df(obj)
+        # df = pd.read_pickle(DOC_FILE_DF)
+
         QA_PIPELINE.fit_retriever(df=df)
     
         # Make a prediction on user query

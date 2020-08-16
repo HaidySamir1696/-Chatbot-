@@ -167,3 +167,22 @@ KeyboardInterrupt
 2020-05-26 16:30:33,475 [INFO ]  Starting Rasa server on http://localhost:5005
 2020-05-26 16:36:19,697 [INFO ]  Starting Rasa server on http://localhost:5005
 2020-05-26 16:37:51,016 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-29 12:50:09,370 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-29 20:24:09,307 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-30 16:14:29,433 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-30 16:15:25,048 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-30 16:19:40,423 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-05-30 19:08:49,130 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-06 09:26:04,821 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-06 09:31:54,182 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-06 09:39:49,653 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-06 10:14:14,590 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-07 13:44:31,422 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-07 13:45:22,851 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-06-07 15:11:45,517 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-08-16 14:03:29,251 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-08-16 14:05:20,954 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-08-16 14:06:04,911 [ERROR]  Failed to run custom action 'action_faq_qa_model'. Couldn't connect to the server at 'http://localhost:5055/webhook'. Is the server running? Error: Cannot connect to host localhost:5055 ssl:default [Connection refused]
+2020-08-16 14:06:04,911 [ERROR]  Encountered an exception while running action 'action_faq_qa_model'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-08-16 14:06:34,366 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-08-16 14:06:56,303 [INFO ]  Starting Rasa server on http://localhost:5005
