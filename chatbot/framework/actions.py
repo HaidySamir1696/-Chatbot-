@@ -8,9 +8,8 @@ from qa_system import init_QA_PIPELINE, process_query
 init_QA_PIPELINE()
 
 class ActionFaq(Action):
-    """
-        Question and Answer action used by RASA Framework to retrieve response on document related questions.
-    """
+    """Question and Answer action used by RASA Framework to retrieve response
+    on document related questions."""
 
     def name(self) -> Text:
         return "action_faq_qa_model"
@@ -18,8 +17,10 @@ class ActionFaq(Action):
     def run(self, dispatcher: CollectingDispatcher,tracker: Tracker,domain: Dict[Text, Any]) -> List:
         DOC_FILE = tracker.get_slot("protocol_name")
         if DOC_FILE == "none":
-            dispatcher.utter_message("Please specify the name of the protocol in your question.")
-            dispatcher.utter_message("Ex: What is RWDS in HyperBusSpecification protocol?")
+            # dispatcher.utter_message("Please specify the name of the protocol in your question or your answer will not be accurate.")
+            answer = process_query(query=tracker.latest_message.get('text'), document=DOC_FILE)
+            dispatcher.utter_message(answer)
+            # dispatcher.utter_message("Ex: What is RWDS in HyperBusSpecification protocol?")
             return[UserUtteranceReverted()]
         else:
             answer = process_query(query=tracker.latest_message.get('text'), document=DOC_FILE)

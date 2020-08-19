@@ -8,6 +8,7 @@
   "hyper_bus": "HyperBusSpecification",
   "hyper bus": "HyperBusSpecification",
   "Hyper Bus Specification": "HyperBusSpecification",
+<<<<<<< HEAD
 	"hyper bus specification": "HyperBusSpecification",
 	"I2C": "I2c",
 	"i2c": "I2c",
@@ -15,4 +16,10 @@
   "uart": "uart",
   "UART": "uart",
   "Uart": "uart"
+=======
+  "hyper bus specification": "HyperBusSpecification",
+  "I2C": "I2c",
+  "i2c": "I2c",
+  "I2c": "I2c"
+>>>>>>> bc3a42b28b763c02d983860d4c43cc459accb37b
 }

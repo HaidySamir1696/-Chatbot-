@@ -1,33 +1,33 @@
 // @flow
-import "@babel/polyfill";
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import isEqual from "lodash.isequal";
-import classnames from "classnames";
+import '@babel/polyfill';
+import React, { Component, Fragment } from 'react';
+// import ReactDOM from "react-dom";
+import isEqual from 'lodash.isequal';
+import classnames from 'classnames';
 
 // $FlowFixMe
-import "./Chatroom.scss";
+import './Chatroom.scss';
 
-import { uuidv4 } from "./utils";
-import Message, { MessageTime } from "./Message";
-import SpeechInput from "./SpeechInput";
+// import { uuidv4 } from "./utils";
+import Message, { MessageTime } from './Message';
+import SpeechInput from './SpeechInput';
 
 const REDRAW_INTERVAL = 10000;
 const GROUP_INTERVAL = 60000;
 
 export type MessageType =
   | {
-      type: "text",
-      text: string
+      type: 'text',
+      text: string,
     }
-  | { type: "image", image: string }
+  | { type: 'image', image: string }
   | {
-      type: "button",
-      buttons: Array<{ payload: string, title: string, selected?: boolean }>
+      type: 'button',
+      buttons: Array<{ payload: string, title: string, selected?: boolean }>,
     }
   | {
-      type: "custom",
-      content: any
+      type: 'custom',
+      content: any,
     };
 
 export type ChatMessage = {
@@ -35,19 +35,19 @@ export type ChatMessage = {
   username: string,
   time: number,
   uuid: string,
-  voiceLang?: string
+  voiceLang?: string,
 };
 
 const WaitingBubble = () => (
-  <li className="chat waiting">
+  <li className='chat waiting'>
     <span>●</span> <span>●</span> <span>●</span>
   </li>
 );
 
 const MessageGroup = ({ messages, onButtonClick, voiceLang }) => {
-  const isBot = messages[0].username === "bot";
+  const isBot = messages[0].username === 'bot';
   const isButtonGroup =
-    messages.length === 1 && messages[0].message.type === "button";
+    messages.length === 1 && messages[0].message.type === 'button';
   return (
     <Fragment>
       {messages.map((message, i) => (
@@ -74,16 +74,16 @@ type ChatroomProps = {
   onButtonClick: (message: string, payload: string) => *,
   onSendMessage: (message: string) => *,
   onToggleChat: () => *,
-  voiceLang: ?string
+  voiceLang: ?string,
 };
 
 type ChatroomState = {
-  inputValue: string
+  inputValue: string,
 };
 
 export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
   state = {
-    inputValue: ""
+    inputValue: '',
   };
   lastRendered: number = 0;
   chatsRef = React.createRef<HTMLDivElement>();
@@ -113,13 +113,13 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
 
   getInputRef(): HTMLInputElement {
     const { inputRef } = this;
-    if (inputRef.current == null) throw new TypeError("inputRef is null.");
+    if (inputRef.current == null) throw new TypeError('inputRef is null.');
     return ((inputRef.current: any): HTMLInputElement);
   }
 
   getChatsRef(): HTMLElement {
     const { chatsRef } = this;
-    if (chatsRef.current == null) throw new TypeError("chatsRef is null.");
+    if (chatsRef.current == null) throw new TypeError('chatsRef is null.');
     return ((chatsRef.current: any): HTMLElement);
   }
 
@@ -137,7 +137,7 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
     }
     const message = this.getInputRef().value.trim();
     this.props.onSendMessage(message);
-    this.setState({ inputValue: "" });
+    this.setState({ inputValue: '' });
   };
 
   handleButtonClick = (message: string, payload: string) => {
@@ -159,8 +159,8 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
     for (const message of messages.slice(1)) {
       if (
         // Buttons always have their own group
-        lastType === "button" ||
-        message.message.type === "button" ||
+        lastType === 'button' ||
+        message.message.type === 'button' ||
         // Messages are grouped by user/bot
         message.username !== lastUsername ||
         // Only time-continuous messages are grouped
@@ -185,7 +185,7 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
     scrollToEnd: boolean = false
   ) => {
     await this.setState({
-      inputValue
+      inputValue,
     });
     if (scrollToEnd) {
       const inputRef = this.getInputRef();
@@ -197,13 +197,13 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
   render() {
     const { messages, isOpen, waitingForBotResponse, voiceLang } = this.props;
     const messageGroups = this.groupMessages(messages);
-    const isClickable = i =>
+    const isClickable = (i) =>
       !waitingForBotResponse && i == messageGroups.length - 1;
 
     return (
-      <div className={classnames("chatroom", isOpen ? "open" : "closed")}>
+      <div className={classnames('chatroom', isOpen ? 'open' : 'closed')}>
         <h3 onClick={this.props.onToggleChat}>{this.props.title}</h3>
-        <div className="chats" ref={this.chatsRef}>
+        <div className='chats' ref={this.chatsRef}>
           {messageGroups.map((group, i) => (
             <MessageGroup
               messages={group}
@@ -216,20 +216,20 @@ export default class Chatroom extends Component<ChatroomProps, ChatroomState> {
           ))}
           {waitingForBotResponse ? <WaitingBubble /> : null}
         </div>
-        <form className="input" onSubmit={this.handleSubmitMessage}>
+        <form className='input' onSubmit={this.handleSubmitMessage}>
           <input
-            type="text"
+            type='text'
             value={this.state.inputValue}
-            onChange={event =>
+            onChange={(event) =>
               this.handleInputChange(event.currentTarget.value)
             }
             ref={this.inputRef}
           />
-          <input type="submit" value="Submit" />
+          <input type='submit' value='Submit' />
           {this.props.speechRecognition != null ? (
             <SpeechInput
               language={this.props.speechRecognition}
-              onSpeechInput={message => this.handleInputChange(message, true)}
+              onSpeechInput={(message) => this.handleInputChange(message, true)}
               onSpeechEnd={this.handleSubmitMessage}
             />
           ) : null}

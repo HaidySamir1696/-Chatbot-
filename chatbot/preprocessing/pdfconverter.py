@@ -44,7 +44,7 @@ def parse_pdf_and_save(file_path, dest_path, doc_name, include_line_breaks=False
             name: str -> name of document to save cache with
             include_line_breaks: bool -> if true PDFParser will merge small paragraphs together
     """
-    doc_name = doc_name.lower().replace(' ','-').strip()
+    doc_name = doc_name.strip()
     name_ext = ''
 
     if path.isfile(dest_path):

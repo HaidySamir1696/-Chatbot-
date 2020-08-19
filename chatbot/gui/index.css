@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px
+}
+
 .chat-container {
   margin: 100px auto;
   width: 360px;
@@ -27,9 +31,11 @@
   font-size: 12px;
   cursor: pointer;
 }
+
 .chat-demo-button:hover {
   background-color: rgba(52, 61, 78, 0.3);
 }
+
 .chat-demo-button:active {
   background-color: rgba(52, 61, 78, 0.8);
 }
