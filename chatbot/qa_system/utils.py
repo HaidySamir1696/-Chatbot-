@@ -143,16 +143,16 @@ def handle_figures(pdf_scr, prediction, page_number=None):
     # creating a pdf reader object
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     para = prediction[2]
-
+    paraNoSpaces=para.replace(" ", "")
     # creating a page object
     for page in range(pdfReader.numPages):
         # creating rotated page object
         pageObj = pdfReader.getPage(page)
         txt= pageObj.extractText()
         txt2 =txt.replace('\n', '')
-
+        txt2=txt2.replace(" ", "")
          #check to return the image
-        if(txt2.find(para)!=-1 and (para.split(None, 1)[0] == "Figure" or para.split(None, 1)[0] == "Table")):
+        if(txt2.find(paraNoSpaces)!=-1 and (para.split(None, 1)[0] == "Figure" or para.split(None, 1)[0] == "Table")):
 
             # code for highlighting the figures and produce the image
             doc = fitz.open(pdf_scr)
