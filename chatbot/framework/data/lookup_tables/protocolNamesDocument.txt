@@ -1,2 +1,4 @@
 HyperBusSpecification
 I2C
+uart
+UART

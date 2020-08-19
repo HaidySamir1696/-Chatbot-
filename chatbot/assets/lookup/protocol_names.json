@@ -11,5 +11,8 @@
 	"hyper bus specification": "HyperBusSpecification",
 	"I2C": "I2c",
 	"i2c": "I2c",
-	"I2c": "I2c"
+  "I2c": "I2c",
+  "uart": "uart",
+  "UART": "uart",
+  "Uart": "uart"
 }

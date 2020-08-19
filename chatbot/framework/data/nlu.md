@@ -57,3 +57,4 @@ framework/data/lookup_tables/protocolNamesDocument.txt
 - what is something in [I2C](protocol_name) datasheet?
 - please send me the figure of Read Transaction, Single Initial Latency Count in [hyperbusspecification](protocol_name)
 - what does Open-Drain for Bidirectional Communication in [I2C](protocol_name) means? 
+- what is the description of fCLOCK in [UART](protocol_name)
