@@ -1,0 +1,26 @@
+Apr 22, 2020 5:15:17 PM org.apache.tika.config.InitializableProblemHandler$3 handleInitializableProblem
+WARNING: J2KImageReader not loaded. JPEG2000 files will not be processed.
+See https://pdfbox.apache.org/2.0/dependencies.html#jai-image-io
+for optional dependencies.
+
+Apr 22, 2020 5:15:18 PM org.apache.tika.config.InitializableProblemHandler$3 handleInitializableProblem
+WARNING: Tesseract OCR is installed and will be automatically applied to image files unless
+you've excluded the TesseractOCRParser from the default parser.
+Tesseract may dramatically slow down content extraction (TIKA-2359).
+As of Tika 1.15 (and prior versions), Tesseract is automatically called.
+In future versions of Tika, users may need to turn the TesseractOCRParser on via TikaConfig.
+Apr 22, 2020 5:15:18 PM org.apache.tika.config.InitializableProblemHandler$3 handleInitializableProblem
+WARNING: org.xerial's sqlite-jdbc is not loaded.
+Please provide the jar on your classpath to parse sqlite files.
+See tika-parsers/pom.xml for the correct version.
+INFO  Starting Apache Tika 1.19 server
+INFO  Setting the server's publish address to be http://localhost:9998/
+INFO  Logging initialized @2034ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  jetty-9.4.z-SNAPSHOT; built: 2018-06-05T18:24:03.829Z; git: d5fc0523cfa96bfebfbda19606cad384d772f04c; jvm 11.0.5+10-post-Ubuntu-0ubuntu1.119.04
+INFO  Started ServerConnector@7a4ff5d1{HTTP/1.1,[http/1.1]}{localhost:9998}
+INFO  Started @2123ms
+WARN  Empty contextPath
+INFO  Started o.e.j.s.h.ContextHandler@4758820d{/,null,AVAILABLE}
+INFO  Started Apache Tika server at http://localhost:9998/
+INFO  rmeta/xml (autodetecting type)
+INFO  rmeta/xml (autodetecting type)
